@@ -10,9 +10,6 @@ WORKDIR $HOME
 # Change Background to hacker
 COPY assets/mr-robot-wallpaper.png  /usr/share/extra/backgrounds/bg_default.png
 
-# Applying dark theme
-COPY assets/xsettings.xml  /home/kasm-user/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
-
 # Install VScode
 COPY ./src/ubuntu/install/vs_code $INST_SCRIPTS/vs_code/
 RUN bash $INST_SCRIPTS/vs_code/install_vs_code.sh  && rm -rf $INST_SCRIPTS/vs_code/
@@ -28,4 +25,7 @@ RUN $STARTUPDIR/set_user_permission.sh $HOME
 
 ENV HOME /home/kasm-user
 WORKDIR $HOME
-RUN mkdir -p $HOME && chown -R 1001:0 $HOME
+RUN mkdir -p $HOME
+# Applying dark theme
+COPY assets/xsettings.xml  /home/kasm-user/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+RUN chown -R 1001:0 $HOME
