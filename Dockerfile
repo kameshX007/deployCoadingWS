@@ -7,8 +7,11 @@ ENV INST_SCRIPTS $STARTUPDIR/install
 WORKDIR $HOME
 ######### Customize Container Here ###########
 
-# Change Background to sth cool
+# Change Background to hacker
 COPY assets/mr-robot-wallpaper.png  /usr/share/extra/backgrounds/bg_default.png
+
+# Applying dark theme
+COPY assets/xsettings.xml  /home/kasm-user/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
 
 # Install VScode
 COPY ./src/ubuntu/install/vs_code $INST_SCRIPTS/vs_code/
