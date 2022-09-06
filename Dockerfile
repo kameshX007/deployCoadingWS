@@ -16,9 +16,8 @@ COPY ./src/ubuntu/install/vs_code $INST_SCRIPTS/vs_code/
 RUN bash $INST_SCRIPTS/vs_code/install_vs_code.sh  && rm -rf $INST_SCRIPTS/vs_code/
 
 # Install Firefox
-#COPY ./src/ubuntu/install/firefox/ $INST_SCRIPTS/firefox/
-#COPY ./src/ubuntu/install/firefox/firefox.desktop $HOME/Desktop/
-#RUN bash $INST_SCRIPTS/firefox/install_firefox.sh && rm -rf $INST_SCRIPTS/firefox/
+COPY ./src/ubuntu/install/firefox/ $INST_SCRIPTS/firefox/
+RUN bash $INST_SCRIPTS/firefox/install_firefox.sh && rm -rf $INST_SCRIPTS/firefox/
 
 ######### End Customizations ###########
 RUN chown 1001:0 $HOME
