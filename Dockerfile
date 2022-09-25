@@ -28,6 +28,9 @@ RUN apt -y upgrade
 RUN apt -y install neofetch htop nano
 RUN apt -y autoremove
 
+COPY ./src/ubuntu/install/firefox/custom_startup.sh $STARTUPDIR/custom_startup.sh
+RUN chmod +x $STARTUPDIR/custom_startup.sh
+
 ######### End Customizations ###########
 RUN chown 1001:0 $HOME
 RUN $STARTUPDIR/set_user_permission.sh $HOME
