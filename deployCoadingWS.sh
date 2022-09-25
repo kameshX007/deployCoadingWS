@@ -21,6 +21,6 @@ echo "Image build successfully...";
 
 #Deploying container
 echo "Deploying VScode...";
-docker run -d -p 6901:6901 -e VNC_PW=$vncPassword --restart=always -v /home/$dockerUser/docker/CoadingWS/kasm-user:/home/kasm-user --name coadingwscontainer coadingws;
+docker run -d -p 6901:6901 -e VNC_PW=$vncPassword --network tunnel --restart=always -v /home/$dockerUser/docker/CoadingWS/kasm-user:/home/kasm-user --name coadingwscontainer coadingws;
 echo "coadingws deployment successfull...";
 exit 0
